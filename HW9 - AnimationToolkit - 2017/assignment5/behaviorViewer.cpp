@@ -84,6 +84,11 @@ void BehaviorViewer::initializeGui()
 	TwAddButton(m_TwBehaviorBar, "Reset", onResetCb, this, "");
 
 	//TODO: Add your code here to create additional GUI Variables
+	TwAddVarRW(m_TwBehaviorBar, "OriKp", TW_TYPE_DOUBLE, &BehaviorController::gOriKp, "");
+	TwAddVarRW(m_TwBehaviorBar, "OriKv", TW_TYPE_DOUBLE, &BehaviorController::gOriKv, "");
+	TwAddVarRW(m_TwBehaviorBar, "VelKv", TW_TYPE_DOUBLE, &BehaviorController::gVelKv, "");
+	TwAddVarRW(m_TwBehaviorBar, "KAvoid", TW_TYPE_DOUBLE, &BehaviorController::KAvoid, "");
+	TwAddVarRW(m_TwBehaviorBar, "TAvoid", TW_TYPE_DOUBLE, &BehaviorController::TAvoid, "");
 }
 
 
@@ -473,3 +478,7 @@ void TW_CALL BehaviorViewer::onResetCb(void *clientData)
 }
 
 //TODO: Add your code here to create the corresponding callback functions for each new GUI Variable added
+
+// No corresponding callback function needed, as what I added to GUI is some global member variables of 
+// BehaviorController class, like its VelKp and  OriKp because they are extremely useful.
+// These callback functions are actually very easy to write, just a little bit change to the codes above.
